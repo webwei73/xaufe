@@ -16,3 +16,9 @@ wangwei#xaufe.xaufe.edu.cn
 
 ## 四、其他
 
+#### 1、常用链接
+
+[学校官网](http://www.xaufe.edu.cn/)
+
+[中心网站](http://ietc.xaufe.edu.cn/)
+
