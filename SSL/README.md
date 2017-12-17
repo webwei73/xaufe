@@ -135,11 +135,13 @@ server {
 
 ### 九、证书更新
 
-使用crontab每天执行一次更新证书。
-````/etc/cron.daily/getssl.cron````文件：
+使用crontab每天3点执行一次更新证书。
+````/etc/cron.d/getssl.cron````文件：
 
 ````
-/usr/src/getssl/getssl -d pass.xaufe.edu.cn
+MAILTO=root
+
+0  3	* * *	root	/usr/src/getssl/getssl -d pass.xaufe.edu.cn
 ````
 ### 十、增加域名
 
