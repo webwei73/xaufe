@@ -141,3 +141,52 @@ server {
 ````
 /usr/src/getssl/getssl -d pass.xaufe.edu.cn
 ````
+### 十、增加域名
+
+以增加````ecard````域名为例：
+1. 备份````/root/.getssl/pass.xaufe.edu.cn/getssl.cfg````文件
+2. 执行````/usr/src/getssl/getssl -c pass.xaufe.edu.cn````
+3. 修改备份的````getssl.cfg````文件，增加SAN及ACL
+````
+SANS="cas.xaufe.edu.cn,my.xaufe.edu.cn,ecard.xaufe.edu.cn"
+ACL=('/usr/share/nginx/html/pass/.well-known/acme-challenge'
+	 '/usr/share/nginx/html/cas/.well-known/acme-challenge'
+	 '/usr/share/nginx/html/my/.well-known/acme-challenge'
+	 '/usr/share/nginx/html/ecard/.well-known/acme-challenge')
+	 
+````
+4. 覆盖````/root/.getssl/pass.xaufe.edu.cn/getssl.cfg````文件
+
+5. 配置ecard的server段
+
+````
+location /.well-known {
+	root	/usr/share/nginx/html/ecard; 
+}
+````
+
+6. 执行
+````
+/usr/src/getssl/getssl -d pass.xaufe.edu.cn
+````
+	 
+7. 验证证书是否生效
+
+采用[https://www.ssllabs.com/ssltest/analyze.html?d=ecard.xaufe.edu.cn](https://www.ssllabs.com/ssltest/analyze.html?d=cas.xaufe.edu.cn)验证证书
+
+8. 修改eacrd 的server段，添加ssl配置
+
+````
+server {
+listen 80;
+server_name ecard.xaufe.edu.cn;
+rewrite     ^   https://$host$request_uri? permanent;
+}
+
+server {
+listen 443 ssl;
+ssl on;
+    server_name	ecard.xaufe.edu.cn;
+    ......
+}
+````
