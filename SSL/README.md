@@ -164,17 +164,18 @@ location /.well-known {
 	root	/usr/share/nginx/html/ecard; 
 }
 ````
+6. 删除````/root/.getssl/pass.xaufe.edu.cn/pass.xaufe.edu.cn.crt````文件 
 
-6. 执行
+7. 执行
 ````
 /usr/src/getssl/getssl -d pass.xaufe.edu.cn
 ````
 	 
-7. 验证证书是否生效
+8. 验证证书是否生效
 
-采用[https://www.ssllabs.com/ssltest/analyze.html?d=ecard.xaufe.edu.cn](https://www.ssllabs.com/ssltest/analyze.html?d=cas.xaufe.edu.cn)验证证书
+采用[https://www.ssllabs.com/ssltest/analyze.html?d=ecard.xaufe.edu.cn](https://www.ssllabs.com/ssltest/analyze.html?d=ecard.xaufe.edu.cn)验证证书
 
-8. 修改eacrd 的server段，添加ssl配置
+9. 修改eacrd 的server段，添加ssl配置
 
 ````
 server {
