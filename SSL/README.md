@@ -144,7 +144,7 @@ server {
 ### 十、增加域名
 
 以增加````ecard````域名为例：
-1. 备份````/root/.getssl/pass.xaufe.edu.cn/getssl.cfg````文件
+1. 备份并删除````/root/.getssl/pass.xaufe.edu.cn/getssl.cfg````文件
 2. 执行````/usr/src/getssl/getssl -c pass.xaufe.edu.cn````
 3. 修改备份的````getssl.cfg````文件，增加SAN及ACL
 ````
