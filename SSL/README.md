@@ -193,3 +193,30 @@ ssl on;
     ......
 }
 ````
+### 十一、 Tomcat获取参数错误问题
+
+Tomcat使用http，通过Nginx反向代理实现ssl时，会出现参数获取不正确的问题。
+
+1. Tomcat的````server.xml````文件中添加如下代码
+
+````
+<!---->
+<Valve className="org.apache.catalina.valves.RemoteIpValve"
+	internalProxies=".*"
+	remoteIpHeader ="x-forwarded-for"
+   	proxiesHeader="x-forwarded-by"
+   	protocolHeader="x-forwarded-proto"
+	trustedProxies=".*"
+       />
+````
+
+其中````remoteIpHeader````是重要参数，网上很多文章都没写这个，不配置不会生效。````".*"````通配任何地址，也可设置为已知代理ip
+
+2. Nginx的````location````段添加
+
+````
+proxy_set_header  Host $host;  
+proxy_set_header  X-Real-IP  $remote_addr;  
+proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;  
+proxy_set_header  X-Forwarded-Proto  $scheme; 
+````
