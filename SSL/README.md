@@ -2,7 +2,7 @@
 
 by **WangWei**
 
-创建时间：**20171215** 修改时间：**20171217**
+创建时间：**20171215** 修改时间：**20171226**
 
 **参考：**
 - [[原创]使用Let's encrypt免费SSL证书](https://github.com/bg6cq/ITTS/blob/master/security/ssl/letsencrypt/README.md)
@@ -60,9 +60,11 @@ ACL=('/usr/share/nginx/html/pass/.well-known/acme-challenge'
 #Nginx的server段需要这个路径
 DOMAIN_CERT_LOCATION="/etc/nginx/ssl/pass.xaufe.edu.cn.crt"
 DOMAIN_KEY_LOCATION="/etc/nginx/ssl/pass.xaufe.edu.cn.key"
+CA_CERT_LOCATION="/etc/nginx/ssl/chain.crt"
 #合并的pem文件，否则有些浏览器验证不通过
 DOMAIN_CHAIN_LOCATION="/etc/nginx/ssl/fullchain.pem"
-CA_CERT_LOCATION="/etc/nginx/ssl/chain.crt"
+DOMAIN_PEM_LOCATION="/etc/nginx/ssl/privkey.pem"
+
 
 #更新证书后重启Nginx命令
 RELOAD_CMD="/bin/systemctl restart nginx.service"
