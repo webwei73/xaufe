@@ -60,6 +60,8 @@ ACL=('/usr/share/nginx/html/pass/.well-known/acme-challenge'
 #Nginx的server段需要这个路径
 DOMAIN_CERT_LOCATION="/etc/nginx/ssl/pass.xaufe.edu.cn.crt"
 DOMAIN_KEY_LOCATION="/etc/nginx/ssl/pass.xaufe.edu.cn.key"
+#合并的pem文件，否则有些浏览器验证不通过
+DOMAIN_CHAIN_LOCATION="/etc/nginx/ssl/fullchain.pem"
 CA_CERT_LOCATION="/etc/nginx/ssl/chain.crt"
 
 #更新证书后重启Nginx命令
@@ -111,7 +113,7 @@ server {
     server_name	cas.xaufe.edu.cn;
 
     #证书路径，多域名使用同一证书
-    ssl_certificate /etc/nginx/ssl/pass.xaufe.edu.cn.crt;
+    ssl_certificate /etc/nginx/ssl/fullchain.pem;
     ssl_certificate_key /etc/nginx/ssl/pass.xaufe.edu.cn.key;
     ssl_session_timeout 5m;
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
