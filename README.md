@@ -4,7 +4,7 @@
 
 wangwei#xaufe.xaufe.edu.cn
 
-**编辑时间:20171206**
+**编辑时间:20180103**
 
 ## 一、MarkDown
 
@@ -15,6 +15,8 @@ wangwei#xaufe.xaufe.edu.cn
 #### 1. Nginx（[nginx反向代理服务器](https://github.com/webwei73/ITTS/blob/master/app/nginx/README.md), [nginx-rrd绘图参数](https://github.com/webwei73/ITTS/blob/master/app/nginx/nginx-rrd/README.md), [Nginx 400错误案例](https://github.com/webwei73/ITTS/blob/master/app/nginx/Cases.md)）
 
 #### 2. SSL（[Nginx反向代理多网站SSL证书](https://github.com/webwei73/xaufe/tree/master/SSL)）
+
+#### 3. DHCP（[CentOS DHCP服务器配置](https://github.com/webwei73/xaufe/tree/master/DHCP)）
 
 
 ## 三、信息系统及网站
