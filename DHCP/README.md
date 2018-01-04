@@ -111,6 +111,10 @@ local4.*             /var/log/dhcp/dhcp.log
 *.info;mail.none;authpriv.none;cron.none;local4.none                /var/log/messages
 ````
 3. 重启rsyslog和DHCP
+````
+# /bin/systemctl restart rsyslog.service
+# /bin/systemctl restart dhcpd.service
+````
 4. 添加日志回滚
 
 webmin的Log File Rotation中添加对```` /var/log/dhcp/*.log````日志的回滚操作（每天压缩，保存7天）
