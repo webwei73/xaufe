@@ -721,7 +721,7 @@ static void output_double_color(struct conf_t *state,
 	fprintf(f, "<%s", type);
 	if (state->color_mode == color_on)
 		start_color(state, oh, f);
-	fprintf(f, ">%g", oh->percent);
+	fprintf(f, ">%g%%", oh->percent);
 	fprintf(f, "</%s>\n", type);
 }
 
@@ -734,6 +734,11 @@ static void output_double_color(struct conf_t *state,
 static void output_float(FILE *restrict f, char const *restrict type, float fl)
 {
 	fprintf(f, "<%s>%.3f</%s>\n", type, fl, type);
+}
+
+static void output_percent_float(FILE *restrict f, char const *restrict type, float fl)
+{
+	fprintf(f, "<%s>%.3f%%</%s>\n", type, fl, type);
 }
 
 /*! \brief Begin table in html output format.
@@ -804,10 +809,10 @@ static int output_html(struct conf_t *state)
 		output_double(outfile, "td", state->shared_net_root->available);
 		output_double(outfile, "td", state->shared_net_root->used);
 		output_double(outfile, "td", state->shared_net_root->available - state->shared_net_root->used);
-		output_float(outfile, "td", oh.percent);
+		output_percent_float(outfile, "td", oh.percent);
 		output_double(outfile, "td", state->shared_net_root->touched);
 		output_double(outfile, "td", oh.tc);
-		output_float(outfile, "td", oh.tcp);
+		output_percent_float(outfile, "td", oh.tcp);
 		if (state->backups_found == 1) {
 			output_double(outfile, "td", state->shared_net_root->backups);
 			output_float(outfile, "td", oh.tcp);
@@ -902,7 +907,7 @@ static int output_html(struct conf_t *state)
 			output_double_color(state, &oh, outfile, "td");
 			output_double(outfile, "td", range_p->touched);
 			output_double(outfile, "td", oh.tc);
-			output_float(outfile, "td", oh.tcp);
+			output_percent_float(outfile, "td", oh.tcp);
 			if (state->backups_found == 1) {
 				output_double(outfile, "td", range_p->backups);
 				output_float(outfile, "td", oh.bup);
