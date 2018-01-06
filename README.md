@@ -4,7 +4,7 @@
 
 wangwei#xaufe.xaufe.edu.cn
 
-**编辑时间:20180103**
+**编辑时间:20180106**
 
 ## 一、MarkDown
 
@@ -17,6 +17,8 @@ wangwei#xaufe.xaufe.edu.cn
 #### 2. SSL（[Nginx反向代理多网站SSL证书](https://github.com/webwei73/xaufe/tree/master/SSL)）
 
 #### 3. DHCP（[CentOS DHCP服务器配置](https://github.com/webwei73/xaufe/tree/master/DHCP)）
+
+#### 4. curl（[各语言获取URL内容实例](https://github.com/webwei73/xaufe/blob/master/curl/)）
 
 
 ## 三、信息系统及网站
