@@ -19,7 +19,13 @@ wangwei#xaufe.xaufe.edu.cn
   set http=nothing
 ......
 ````
-实例：
+例：获取教育网地址库页面，格式化成掩码格式、聚合格式、BIND格式
+
+主表地址：[http://www.nic.edu.cn/member-cgi/ShowMyFIL](http://www.nic.edu.cn/member-cgi/ShowMyFIL)
+
+全部地址（主表+附表）：[http://www.nic.edu.cn/RS/ipstat/internalip/real.html](http://www.nic.edu.cn/RS/ipstat/internalip/real.html)
+
+源码地址：[cernetip.asp](https://github.com/webwei73/xaufe/blob/master/curl/cernetip.asp)
 
 #### 二、PHP
 
@@ -41,7 +47,14 @@ wangwei#xaufe.xaufe.edu.cn
   ......
 ````
 注：若不设置````curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);````参数，将直接输出curl的结果。
-实例：
+
+例：获取教育网地址库页面，格式化成掩码格式、聚合格式、BIND格式
+
+主表地址：[http://www.nic.edu.cn/member-cgi/ShowMyFIL](http://www.nic.edu.cn/member-cgi/ShowMyFIL)
+
+全部地址（主表+附表）：[http://www.nic.edu.cn/RS/ipstat/internalip/real.html](http://www.nic.edu.cn/RS/ipstat/internalip/real.html)
+
+源码地址：[index.php](https://github.com/webwei73/xaufe/blob/master/curl/index.php)
 
 #### 三、Linux
 
