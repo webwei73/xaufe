@@ -20,6 +20,8 @@ wangwei#xaufe.xaufe.edu.cn
 
 #### 4. curl（[各语言获取URL内容实例](https://github.com/webwei73/xaufe/blob/master/curl/)）
 
+#### 5. WEBHOOk（[钉钉自定义机器人](https://github.com/webwei73/xaufe/tree/master/WEBHOOK)）
+
 
 ## 三、信息系统及网站
 
