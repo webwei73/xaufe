@@ -147,6 +147,15 @@ MAILTO=root
 
 0  3	* * *	root	/usr/src/getssl/getssl -d pass.xaufe.edu.cn
 ````
+
+** 待测试 **
+
+证书合并：
+````
+cat pass.xaufe.edu.cn.key pass.xaufe.edu.cn.crt > pass.xaufe.edu.cn.pem
+````
+
+
 ### 十、增加域名
 
 以增加````ecard````域名为例：
