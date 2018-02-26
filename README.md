@@ -33,3 +33,9 @@ wangwei#xaufe.xaufe.edu.cn
 
 [中心网站](http://ietc.xaufe.edu.cn/)
 
+#### 2、学习资源
+
+[源代码学习](https://github.com/webwei73/codereader)
+
+[中科大GitHub](https://github.com/bg6cq/ITTS)
+
