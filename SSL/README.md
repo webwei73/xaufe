@@ -2,11 +2,73 @@
 
 by **WangWei**
 
-创建时间：**20171215** 修改时间：**20171226**
+创建时间：**20171215** 修改时间：**20180314**
 
 **参考：**
 - [[原创]使用Let's encrypt免费SSL证书](https://github.com/bg6cq/ITTS/blob/master/security/ssl/letsencrypt/README.md)
 - [[原创]nginx反向代理服务器](https://github.com/bg6cq/ITTS/blob/master/app/nginx/README.md)
+- 泛域名[[原创]使用Let's encrypt免费SSL证书](https://github.com/bg6cq/ITTS/blob/master/security/ssl/acme.sh/README.md)
+
+
+***
+20180314更新(Let's encrypt支持泛域名证书)
+
+1. 获取脚本
+
+从[https://github.com/Neilpang/acme.sh](https://github.com/Neilpang/acme.sh)下载脚本，复制到````/usr/src/acme.sh````
+
+给文件夹下的acme.sh赋予执行权限
+
+2. 验证服务器
+
+````
+cd /usr/src/acme.sh
+./acme.sh --issue --dns  -d *.xaufe.edu.cn
+````
+执行后退出，提示有：
+```
+Add the following txt record:
+Domain:'_acme-challenge.xaufe.edu.cn'
+Txt value:'9ihDbjYfTExAYeDs4DBUeuTo18KBzwvTEjUnSwd32-c'
+
+```
+
+3. 修改DNS
+
+DNS中添加：
+
+```
+_acme-challenge.xaufe.edu.cn. IN TXT "9ihDbjYfTExAYeDs4DBUeuTo18KBzwvTEjUnSwd32-c"
+```
+
+4. 获取证书
+
+```
+./acme.sh --renew  -d *.xaufe.edu.cn
+```
+默认生成的证书存放在```/root/.acme.sh/*.xaufe.edu.cn```
+
+5. 生成nginx需要证书
+
+```
+acme.sh --install-cert -d *.xaufe.edu.cn 
+--key-file /etc/nginx/ssl/xaufe.edu.cn.key 
+--fullchain-file /etc/nginx/ssl/xaufe.edu.cn.pem
+--reloadcmd "/bin/systemctl restart nginx.service"
+```
+nginx配置文件相应修改为：
+```
+ssl_certificate_key /etc/nginx/ssl/xaufe.edu.cn.key;
+ssl_certificate /etc/nginx/ssl/xaufe.edu.cn.pem;
+```
+
+6. 增加计划任务，执行4、5步骤即可
+
+
+
+***
+
+
 
 **假设**
 
