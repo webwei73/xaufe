@@ -2,7 +2,7 @@
 
 by **WangWei**
 
-创建时间：**20171215** 修改时间：**20180314**
+创建时间：**20171215** 修改时间：**20180518**
 
 **参考：**
 - [[原创]使用Let's encrypt免费SSL证书](https://github.com/bg6cq/ITTS/blob/master/security/ssl/letsencrypt/README.md)
@@ -12,7 +12,7 @@ by **WangWei**
 
 ***
 20180314更新(Let's encrypt支持泛域名证书)
-
+20180518更新(Let's encrypt泛域名证书脚本acme.sh更新，参考原文配置，脚本迁移至DNS服务器中执行)
 1. 获取脚本
 
 从[https://github.com/Neilpang/acme.sh](https://github.com/Neilpang/acme.sh)下载脚本，复制到````/usr/src/acme.sh````
