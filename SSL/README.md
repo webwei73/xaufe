@@ -2,7 +2,7 @@
 
 by **WangWei**
 
-创建时间：**20171215** 修改时间：**20180518**
+创建时间：**20171215** 修改时间：**20180526**
 
 **参考：**
 - [[原创]使用Let's encrypt免费SSL证书](https://github.com/bg6cq/ITTS/blob/master/security/ssl/letsencrypt/README.md)
@@ -14,6 +14,8 @@ by **WangWei**
 20180314更新(Let's encrypt支持泛域名证书)
 
 20180518更新(Let's encrypt泛域名证书脚本acme.sh更新，参考原文配置，脚本迁移至DNS服务器中执行)
+
+20180526更新，添加支持http2支持
 
 1. 获取脚本
 
@@ -174,7 +176,10 @@ server {
 }
 
 server {
-    listen 443 ssl;
+    #listen 443 ssl;
+    #以下配置添加http2支持
+    listen 443 ssl http2;
+    
     ssl on;
     server_name	cas.xaufe.edu.cn;
 
@@ -290,4 +295,32 @@ proxy_set_header  Host $host;
 proxy_set_header  X-Real-IP  $remote_addr;  
 proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;  
 proxy_set_header  X-Forwarded-Proto  $scheme; 
+````
+
+### 十二、参数说明
+
+1. SSL参数说明
+
+HTTPS与HTTP共存：
+
+````
+listen 443 ssl;
+````
+
+强制跳转HTTPS：
+
+````
+listen 443;
+ssl on;
+````
+2. HTTP 2.0支持：
+
+````
+listen 443 ssl http2;
+````
+及
+
+````
+listen 443 http2;
+ssl on;
 ````
